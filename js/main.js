@@ -44,10 +44,16 @@ function go(i, manual) {
 }
 function next() { go(current + 1); }
 function start() { timer = setInterval(next, 6000); }
-function restart() { clearInterval(timer); start(); }
+function restart() { clearInterval(timer); if (!reduceMotion) start(); }
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!reduceMotion) start();
+
+/* Setas do teclado também trocam as fotos do hero */
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') go(current + 1, true);
+  else if (e.key === 'ArrowLeft') go(current - 1, true);
+});
 
 /* ---------- Reveal ao rolar ---------- */
 const revealEls = document.querySelectorAll('.reveal');
@@ -60,44 +66,6 @@ if ('IntersectionObserver' in window && !reduceMotion) {
   revealEls.forEach(el => io.observe(el));
 } else {
   revealEls.forEach(el => el.classList.add('in-view'));
-}
-
-/* ---------- Contadores animados ---------- */
-function animateCount(el) {
-  const target = parseFloat(el.dataset.target);
-  const prefix = el.dataset.prefix || '';
-  const sep = el.dataset.sep === '1';
-  const dur = 1600;
-  const t0 = performance.now();
-  function fmt(n) {
-    n = Math.round(n);
-    return sep ? n.toLocaleString('pt-BR') : String(n);
-  }
-  function step(now) {
-    const p = Math.min((now - t0) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = prefix + fmt(target * eased);
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-const statsGrid = document.getElementById('statsGrid');
-if (statsGrid && 'IntersectionObserver' in window && !reduceMotion) {
-  const so = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        statsGrid.querySelectorAll('.stat-num').forEach(animateCount);
-        so.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-  so.observe(statsGrid);
-} else if (statsGrid) {
-  statsGrid.querySelectorAll('.stat-num').forEach(el => {
-    const prefix = el.dataset.prefix || '';
-    const n = parseFloat(el.dataset.target);
-    el.textContent = prefix + (el.dataset.sep === '1' ? n.toLocaleString('pt-BR') : n);
-  });
 }
 
 /* ---------- Galeria: duplica itens p/ loop infinito ----------
