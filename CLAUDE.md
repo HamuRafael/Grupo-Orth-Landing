@@ -35,12 +35,12 @@ O domínio oficial é orth.com.br. Instagram: @grupo.orth.
 2. Hero em tela cheia com slideshow de fotos que trocam sozinhas (efeito Ken Burns + crossfade), com "dots" e **setas ←/→ do teclado** para trocar manualmente. Os dots são gerados pelo `main.js` conforme a quantidade de `.hero-slide` no HTML (hoje 4: aérea, algodoal, pecuária e família). Eyebrow: "Agronegócio · Desde 1985".
 3. Quem somos — história real (1985, irmãos Ireneu e Afonso Orth, Tapera/RS → Oeste Baiano; 40 anos, 3 gerações) ao lado da foto histórica `comeco-fazenda.jpg`.
 4. Nossas frentes de produção — 4 cartões: Grãos (soja, milho, sorgo, milheto), Fibras e beneficiamento (algodão, algodoeira própria desde 2001), Pecuária e Logística (Transorth). Bloco único com cantos cortados, ícones SVG traço fino, número-fantasma, hover que inunda o card de azul de baixo pra cima.
-5. Galeria — faixa de fotos em loop infinito (pausa no hover).
-6. Missão, visão e valores — tríade aberta separada por filetes (M/, V/, V/). Visão: referência no agro brasileiro. Valores: "Trabalho, fé e perseverança".
-7. Vídeo (id="video") — última seção antes do rodapé: "Conheça nossa história", com YouTube incorporado.
+5. Missão, visão e valores — tríade aberta separada por filetes (M/, V/, V/). Visão: referência no agro brasileiro. Valores: "Trabalho, fé e perseverança".
+6. Vídeo (id="video") — "Conheça nossa história", com YouTube incorporado.
    PEGADINHA: aberto por `file://` o YouTube dá **erro 153** (exige cabeçalho Referer, que
    não existe em arquivo local). Para testar o vídeo localmente, usar o `testar-local.bat`
    (serve em http://localhost:8080). No site publicado (Vercel) funciona direto.
+7. Galeria — última seção antes do rodapé; faixa de fotos em loop infinito (pausa no hover).
 8. Rodapé (id="contato") — marca + tagline, contatos REAIS clicáveis (tel (62) 99875-4466, orth@orth.com.br, Rodovia BR-349 km 278 — Rosário · Correntina/BA) e redes: Instagram, LinkedIn e YouTube (SEM Facebook). NÃO há formulário de contato.
 
 ## Decisões de conteúdo (pedidos do cliente — não reverter)
