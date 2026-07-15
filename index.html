@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -18,9 +18,8 @@
   <header class="site-header" id="topo">
     <div class="wrap header-inner">
       <a href="#topo" class="brand" aria-label="Grupo Orth — início">
-        <!-- TROCAR: logo real em assets/logo/ -->
-        <span class="brand-mark">O</span>
-        <span class="brand-text">Grupo <strong>Orth</strong></span>
+        <img class="brand-logo brand-logo--light" src="assets/logo/logo-branca.png" alt="Grupo Orth" />
+        <img class="brand-logo brand-logo--dark" src="assets/logo/logo-azul.png" alt="" aria-hidden="true" />
       </a>
       <nav class="nav" id="nav">
         <a href="#sobre">Quem somos</a>
@@ -39,10 +38,10 @@
   <!-- ===== HERO com slideshow ===== -->
   <section class="hero" id="hero">
     <div class="hero-slideshow" aria-hidden="true">
-      <div class="hero-slide is-active" style="background-image:url('assets/img/hero-1.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('assets/img/hero-2.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('assets/img/hero-3.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('assets/img/hero-4.jpg')"></div>
+      <div class="hero-slide is-active" style="background-image:url('assets/img/fazenda-aerea.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/img/algodoal.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/img/pecuaria.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/img/familia-orth.jpg')"></div>
     </div>
     <div class="hero-overlay"></div>
 
@@ -51,7 +50,7 @@
       <h1 class="reveal reveal-d1">Cultivamos o presente<br>e plantamos o futuro.</h1>
       <p class="hero-sub reveal reveal-d2">O Grupo Orth une tradição familiar e tecnologia para produzir com eficiência, responsabilidade e respeito à terra.</p>
       <div class="hero-actions reveal reveal-d3">
-        <a href="#sobre" class="btn btn--gold">Conheça o grupo</a>
+        <a href="#sobre" class="btn btn--primary">Conheça o grupo</a>
         <a href="#contato" class="btn btn--ghost">Fale conosco</a>
       </div>
     </div>
@@ -71,7 +70,7 @@
         <p class="placeholder-note reveal">Texto provisório — substituir pela história real do Grupo Orth.</p>
       </div>
       <div class="section-media reveal reveal-d2">
-        <div class="img-photo" style="background-image:url('assets/img/hero-3.jpg')" role="img" aria-label="Placeholder — foto da lavoura/fundadores"></div>
+        <div class="img-photo" style="background-image:url('assets/img/sacolas-40anos.jpg')" role="img" aria-label="Comemoração dos 40 anos do Grupo Orth — algodão e lembranças da festa"></div>
       </div>
     </div>
   </section>
@@ -162,15 +161,13 @@
     </div>
     <div class="gallery reveal" id="gallery">
       <div class="gallery-track" id="galleryTrack">
-        <figure class="gallery-item" style="background-image:url('assets/img/hero-1.jpg')"></figure>
-        <figure class="gallery-item" style="background-image:url('assets/img/hero-2.jpg')"></figure>
-        <figure class="gallery-item" style="background-image:url('assets/img/hero-3.jpg')"></figure>
-        <figure class="gallery-item" style="background-image:url('assets/img/hero-4.jpg')"></figure>
-        <figure class="gallery-item" style="background-image:url('assets/img/hero-2.jpg')"></figure>
-        <figure class="gallery-item" style="background-image:url('assets/img/hero-1.jpg')"></figure>
+        <figure class="gallery-item" style="background-image:url('assets/img/fazenda-aerea.jpg')"></figure>
+        <figure class="gallery-item" style="background-image:url('assets/img/algodoal.jpg')"></figure>
+        <figure class="gallery-item" style="background-image:url('assets/img/sacolas-40anos.jpg')"></figure>
+        <figure class="gallery-item" style="background-image:url('assets/img/pecuaria.jpg')"></figure>
+        <figure class="gallery-item" style="background-image:url('assets/img/familia-orth.jpg')"></figure>
       </div>
     </div>
-    <div class="wrap"><p class="placeholder-note center reveal">Trocar pelas fotos reais das fazendas, colheita e equipe.</p></div>
   </section>
 
   <!-- ===== VALORES ===== -->
@@ -205,7 +202,9 @@
   <footer class="site-footer" id="contato">
     <div class="wrap footer-grid">
       <div class="footer-brand reveal">
-        <span class="brand brand--footer"><span class="brand-mark">O</span><span class="brand-text">Grupo <strong>Orth</strong></span></span>
+        <span class="brand brand--footer">
+          <img class="brand-logo" src="assets/logo/logo-branca.png" alt="Grupo Orth" />
+        </span>
         <p class="footer-tagline">Tradição e tecnologia no agronegócio.</p>
       </div>
 

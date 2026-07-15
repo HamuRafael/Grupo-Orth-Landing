@@ -100,9 +100,16 @@ if (statsGrid && 'IntersectionObserver' in window && !reduceMotion) {
   });
 }
 
-/* ---------- Galeria: duplica itens p/ loop infinito ---------- */
+/* ---------- Galeria: duplica itens p/ loop infinito ----------
+   O conteúdo precisa ser 2× um padrão p/ o translateX(-50%) emendar sem pulo.
+   Dobra de novo enquanto metade da faixa não cobrir a largura da tela. */
 const track = document.getElementById('galleryTrack');
-if (track) track.innerHTML += track.innerHTML;
+if (track) {
+  track.innerHTML += track.innerHTML;
+  while (track.scrollWidth / 2 < window.innerWidth && track.children.length < 60) {
+    track.innerHTML += track.innerHTML;
+  }
+}
 
 /* ---------- Rodapé ---------- */
 document.getElementById('ano').textContent = new Date().getFullYear();
