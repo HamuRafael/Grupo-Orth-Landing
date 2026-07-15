@@ -12,3 +12,6 @@ Desktop.ini
 
 # Logs / temporários
 *.log
+
+# Fotos originais em alta — backup local, NÃO vão para o repositório/deploy
+assets/img/originais/
