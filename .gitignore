@@ -9,6 +9,10 @@ Desktop.ini
 
 # Claude Code (configs locais)
 .claude/
+CLAUDE.md
+
+# Config local de deploy — não vai para o repositório
+vercel.json
 
 # Logs / temporários
 *.log
