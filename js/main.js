@@ -79,5 +79,19 @@ if (track) {
   }
 }
 
+/* ---------- Vagas: escondida até clicarem em "Vagas" ----------
+   O clique tira o hidden antes da navegação padrão do link, então o navegador
+   já encontra a seção visível e rola até ela. Quem chega por um link com #vagas
+   (ex.: divulgação no Instagram) também vê a seção abrir. */
+const vagas = document.getElementById('vagas');
+if (vagas) {
+  const mostrarVagas = () => { vagas.hidden = false; };
+  document.querySelectorAll('a[href="#vagas"]').forEach(l => l.addEventListener('click', mostrarVagas));
+  if (location.hash === '#vagas') {
+    mostrarVagas();
+    vagas.scrollIntoView();
+  }
+}
+
 /* ---------- Rodapé ---------- */
 document.getElementById('ano').textContent = new Date().getFullYear();
