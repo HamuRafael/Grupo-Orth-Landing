@@ -43,6 +43,8 @@ h3 { font-size: 1.3rem; font-weight: 600; }
 .btn--ghost { border-color: rgba(255,255,255,.6); color: #fff; }
 .btn--ghost:hover { background: rgba(255,255,255,.12); }
 .btn--full { width: 100%; }
+.btn--brand { background: var(--brand); color: #fff; box-shadow: 0 8px 20px rgba(0,47,135,.22); }
+.btn--brand:hover { background: var(--blue-600); box-shadow: 0 12px 26px rgba(0,47,135,.3); }
 
 /* Header */
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: #fff; transition: background .35s ease, box-shadow .35s ease, height .35s ease, color .35s ease; }
@@ -174,6 +176,64 @@ h3 { font-size: 1.3rem; font-weight: 600; }
 .valor h3 { color: var(--blue-900); margin-bottom: 12px; font-size: 1.55rem; }
 .valor p { color: var(--ink-soft); max-width: 34ch; }
 
+/* ===== Vagas — cartões que abrem ao clicar (<details>) ===== */
+.vagas { display: grid; gap: 14px; }
+.vaga { position: relative; background: var(--paper); border: 1px solid rgba(20,64,155,.16); border-radius: var(--radius); transition: border-color .25s ease, box-shadow .25s ease; }
+.vaga::before { content: ""; position: absolute; top: -1px; bottom: -1px; left: -1px; width: 3px; border-radius: var(--radius) 0 0 var(--radius); background: var(--brand); transform: scaleY(0); transform-origin: top; transition: transform .35s cubic-bezier(.65,0,.35,1); }
+.vaga:hover, .vaga[open] { border-color: rgba(20,64,155,.35); box-shadow: 0 14px 34px rgba(4,26,77,.10); }
+.vaga[open]::before { transform: scaleY(1); }
+
+.vaga summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; cursor: pointer; list-style: none; }
+.vaga summary::-webkit-details-marker { display: none; }
+.vaga summary:focus-visible { outline-offset: -3px; }
+.vaga-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.vaga-titulo { font-size: 1.2rem; font-weight: 700; color: var(--blue-900); }
+.vaga-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.vaga-tag { font-weight: 600; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-600); padding: 5px 10px; border: 1px solid rgba(20,64,155,.25); border-radius: var(--radius); }
+.vaga-tag--destaque { background: var(--brand); border-color: var(--brand); color: #fff; }
+.vaga-marker {
+  flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center;
+  border: 1px solid rgba(20,64,155,.3); border-radius: var(--radius);
+  color: var(--brand); font-size: 1.4rem; font-weight: 500; line-height: 1;
+  transition: transform .3s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+.vaga:hover .vaga-marker { border-color: var(--brand); }
+.vaga[open] .vaga-marker { transform: rotate(45deg); background: var(--brand); border-color: var(--brand); color: #fff; }
+
+.vaga-corpo { padding: 0 28px 30px; border-top: 1px solid var(--paper-2); }
+.vaga-corpo > p { padding-top: 22px; color: var(--ink-soft); max-width: 70ch; }
+.vaga-corpo h3 { margin: 28px 0 12px; font-size: 1rem; color: var(--blue-900); }
+.vaga-corpo ul { list-style: none; display: grid; gap: 9px; }
+.vaga-corpo li { position: relative; padding-left: 24px; color: var(--ink-soft); font-size: .95rem; }
+.vaga-corpo li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 10px; height: 5px; border-left: 2px solid var(--blue-500); border-bottom: 2px solid var(--blue-500); transform: rotate(-45deg); }
+
+/* Ficha rápida da vaga — mesmo filete da tríade de valores */
+.vaga-fatos { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 24px; border-top: 1px solid rgba(20,64,155,.18); border-bottom: 1px solid rgba(20,64,155,.18); }
+.vaga-fatos > div { padding: 16px 20px; border-left: 1px solid rgba(20,64,155,.18); }
+.vaga-fatos > div:first-child { border-left: none; padding-left: 0; }
+.vaga-fatos dt { font-weight: 600; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--blue-600); margin-bottom: 6px; }
+.vaga-fatos dd { font-weight: 600; font-size: .95rem; line-height: 1.4; color: var(--blue-900); }
+
+.vaga-candidatar { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--paper-2); }
+.vaga-candidatar .btn { display: inline-flex; align-items: center; gap: 10px; }
+.vaga-candidatar .btn svg { width: 18px; height: 18px; }
+.vaga-nota { font-size: .85rem; color: var(--ink-soft); }
+
+/* Banco de Talentos — faixa escura com o mesmo canto chanfrado das frentes */
+.talentos {
+  display: grid; grid-template-columns: 1.4fr .8fr; gap: 40px; align-items: end;
+  margin-top: 56px; padding: clamp(32px, 5vw, 56px);
+  background: var(--blue-900); color: var(--paper);
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 34px 100%, 0 calc(100% - 34px));
+}
+.talentos h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; margin-bottom: 18px; }
+.talentos-copy p:not(.eyebrow) { color: rgba(244,246,251,.78); max-width: 62ch; }
+.talentos-copy p:not(.eyebrow) + p { margin-top: 12px; }
+.talentos-acao { display: grid; gap: 14px; justify-items: start; }
+.talentos-acao .btn { display: inline-flex; align-items: center; gap: 10px; }
+.talentos-acao .btn svg { width: 18px; height: 18px; }
+.talentos-nota { font-size: .85rem; color: rgba(244,246,251,.6); }
+
 /* Footer */
 .site-footer { background: var(--blue-900); color: var(--paper); padding: 84px 0 34px; }
 .footer-grid { display: grid; grid-template-columns: 1.2fr 1.4fr 1fr; gap: 48px; align-items: start; }
@@ -228,10 +288,22 @@ h3 { font-size: 1.3rem; font-weight: 600; }
   .gallery-item { width: 280px; height: 200px; }
   .img-photo { min-height: 300px; }
   .scroll-hint { display: none; }
+  .vaga-fatos { grid-template-columns: repeat(2, 1fr); }
+  .vaga-fatos > div:nth-child(odd) { border-left: none; padding-left: 0; }
+  .vaga-fatos > div:nth-child(n+3) { border-top: 1px solid rgba(20,64,155,.18); }
+  .talentos { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 480px) {
   .frentes { grid-template-columns: 1fr; }
   .hero-actions .btn { flex: 1; text-align: center; }
+  .vaga summary { padding: 20px 18px; }
+  .vaga-corpo { padding: 0 18px 24px; }
+  .vaga-fatos { grid-template-columns: 1fr; }
+  .vaga-fatos > div { border-left: none; padding-left: 0; }
+  .vaga-fatos > div + div { border-top: 1px solid rgba(20,64,155,.18); }
+  .vaga-candidatar .btn { width: 100%; justify-content: center; }
+  .talentos-acao { justify-items: stretch; }
+  .talentos-acao .btn { justify-content: center; }
 }
 
 /* Movimento reduzido */
