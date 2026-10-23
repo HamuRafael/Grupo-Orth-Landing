@@ -1,0 +1,6 @@
+.git
+.vscode
+.idea
+.claude
+assets/img/originais
+*.log
