@@ -19,3 +19,10 @@ vercel.json
 
 # Fotos originais em alta — backup local, NÃO vão para o repositório/deploy
 assets/img/originais/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
